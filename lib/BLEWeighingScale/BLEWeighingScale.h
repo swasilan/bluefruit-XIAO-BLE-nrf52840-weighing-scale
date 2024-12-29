@@ -8,16 +8,19 @@
 
 class BLEWeighingScale : public BLEService
 {
-  protected:
-    BLECharacteristic _weightFeature;
-    BLECharacteristic _weightMeasurement;
-
   public:
     BLEWeighingScale(void);
 
     virtual err_t begin(void);
 
     bool indicate (float weightKg);
+
+  protected:
+    BLECharacteristic _weightFeature;
+    BLECharacteristic _weightMeasurement;
+
+  private:
+    uint16_t setBleWeightFeature(void);
 };
 
 #endif /* BLEWEIGHINGSCALE_H_ */
